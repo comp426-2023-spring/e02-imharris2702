@@ -21,6 +21,25 @@ function reset() {
     showHideShots();
 }
 
-function playGame() {
+// Play game based on values of form
+async function playGame() {
+    // Get game type
+    let game = $('input[type=radio][name=game_choice]:checked').val();
 
+    // Set up url for playing without an opponent
+    let baseurl = window.location.href + 'app/';
+    console.log(baseurl);
+    let url = baseurl + game + '/play/';
+
+    // Append a shot if playing against an opponent
+    let checkbox = document.getElementById('opponent');
+    if(checkbox.checked == true) {
+        let shot = $('input[type=radio][name=shot]:checked').val();
+        url = url + shot
+    }
+    console.log(url);
+
+    let response = await fetch(url);
+    let result = await response.json();
+    console.log(result);
 }
