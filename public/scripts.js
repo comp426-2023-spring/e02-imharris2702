@@ -5,13 +5,15 @@
 // Changes visibility of form depending on options chosen in form
 function showHideShots() {
     let checkbox = document.getElementById('opponent');
-    let radiorps = document.getElementsByClassName('rps');
-    let radiorpsls = document.getElementsByClassName('rpsls');
+    let game = $('input[type=radio][name=game_choice]:checked').val();
 
     if (checkbox.checked == true) {
-        $('.shots').show()
+        $('.shots').show();
+        if (game == 'rps') {
+            $('.rpsls').hide();
+        }
     } else {
-        $('.shots').hide()
+        $('.shots').hide();
     }
 }
 
