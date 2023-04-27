@@ -71,6 +71,79 @@ app.use(morgan(':remote-addr - :remote-user [:date[iso]] ":method :url HTTP/:htt
 // Serve static files
 const staticpath = args.stat || args.s || process.env.STATICPATH || path.join(__dirname, 'public')
 app.use('/', express.static(staticpath))
+
+// Connect rpsls_routes
+import { rps, rpsls } from './lib/rpsls.js';
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Root endpoint
+app.get("/app", (req,res) => {
+	res.status(200).send("200 OK");
+});
+
+// Single player rps endpoint
+app.get("/app/rps", (req,res) => {
+	res.json(rps());
+});
+
+// Single player rpsls endpoint
+app.get("/app/rpsls", (req,res) => {
+	res.json(rpsls());
+});
+
+// Multiplayer url encoded request body rps endpoint
+app.get("/app/rps/play", (req,res) => {
+	let shot = req.body.shot;	
+	if (!shot) {
+		shot = req.query.shot;
+	}
+	res.json(rps(shot));
+});
+
+// Multiplayer json request body rps endpoint
+app.post("/app/rps/play", (req,res) => {
+	let shot = req.body.shot;	
+	if (!shot) {
+		shot = req.query.shot;
+	}
+	res.json(rps(shot));
+});
+
+// Multiplayer url encoded request body rpsls endpoint
+app.get("/app/rpsls/play", (req,res) => {
+	let shot = req.body.shot;	
+	if (!shot) {
+		shot = req.query.shot;
+	}
+	res.json(rpsls(shot));
+});
+
+// Multiplayer json request body rpsls endpoint
+app.post("/app/rpsls/play", (req,res) => {
+	let shot = req.body.shot;
+	if (!shot) {
+		shot = req.query.shot;
+	}
+	res.json(rpsls(shot));
+});
+
+// Multiplayer parameter rps endpoint
+app.get("/app/rps/play/:shot", (req,res) => {
+	res.json(rps(req.params.shot));
+});
+
+// Multiplayer parameter rpsls endpoint
+app.get("/app/rpsls/play/:shot", (req,res) => {
+	res.json(rpsls(req.params.shot));
+});
+
+// Defualt route
+app.use(function(req, res){
+	res.status(404).send("404 NOT FOUND");
+});
+
 // Create app listener
 const server = app.listen(port)
 // Create a log entry on start
