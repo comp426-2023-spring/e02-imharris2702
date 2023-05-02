@@ -27,6 +27,7 @@ function reset() {
     if (resultVisible) {
         showHideForm();
         showHideResult();
+        $('#play').show();
     }
 }
 
@@ -49,12 +50,29 @@ async function playGame() {
     let response = await fetch(url);
     let result = await response.json();
     console.log(result);
+
+
+    $('#play').hide();
+    showHideForm();
+    showHideResult();
 }
 
 function showHideForm() {
-
+    if (formVisible) {
+        $('#game_settings').hide();
+        formVisible = false;
+    } else {
+        $('#game_settings').show();
+        formVisible = true;
+    }
 }
 
 function showHideResult() {
-
+    if (resultVisible) {
+        $('#results').hide();
+        resultVisible = false;
+    } else {
+        $('#results').show();
+        resultVisible = true;
+    }
 }
