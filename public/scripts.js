@@ -3,6 +3,9 @@
 // https://github.com/jdmar3/coinserver
 
 // Changes visibility of form depending on options chosen in form
+var formVisible = true;
+var resultVisible = false;
+
 function showHideShots() {
     let checkbox = document.getElementById('opponent');
     let game = $('input[type=radio][name=game_choice]:checked').val();
@@ -21,6 +24,10 @@ function showHideShots() {
 function reset() {
     document.getElementById('game_settings').reset();
     showHideShots();
+    if (resultVisible) {
+        showHideForm();
+        showHideResult();
+    }
 }
 
 // Play game based on values of form
@@ -30,7 +37,6 @@ async function playGame() {
 
     // Set up url for playing without an opponent
     let baseurl = window.location.href + 'app/';
-    console.log(baseurl);
     let url = baseurl + game + '/play/';
 
     // Append a shot if playing against an opponent
@@ -39,9 +45,16 @@ async function playGame() {
         let shot = $('input[type=radio][name=shot]:checked').val();
         url = url + shot
     }
-    console.log(url);
 
     let response = await fetch(url);
     let result = await response.json();
     console.log(result);
+}
+
+function showHideForm() {
+
+}
+
+function showHideResult() {
+
 }
