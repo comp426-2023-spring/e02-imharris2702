@@ -33,9 +33,11 @@
             <label for="spock" class="rpsls shots">Spock</label>
         </form>
         <div id="results" style="display: none;">
-            <p id="opponent_result"></p>
-            <p id="player_result"></p>
-            <p id="game_result"></p>
+            <p class="opponent_result" style="display: none;">OPPONENT</p>
+            <img src="" class="opponent_result" id="opponent_img" style="display: none;">
+            <p class="player_result">PLAYER</p>
+            <img src="" class="player_result" id="player_img">
+            <p id="game_result" style="display: none;"></p>
         </div>
         <br>
         <button type="button" id="play" onclick="playGame()">Play</button>

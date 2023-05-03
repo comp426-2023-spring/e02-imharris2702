@@ -27,13 +27,6 @@ function reset() {
     if (resultVisible) {
         showHideForm();
         showHideResult();
-        $('#play').show();
-        let opponent = document.getElementById('opponent_result');
-        opponent.innerHTML = "";
-        let player = document.getElementById('player_result');
-        player.innerHTML = "";
-        let game_result = document.getElementById('game_result');
-        game_result.innerHTML = "";
     }
 }
 
@@ -58,14 +51,14 @@ async function playGame() {
     console.log(result);
 
     if (result.opponent) {
-        let opponent = document.getElementById('opponent_result');
-        opponent.innerHTML = result.opponent.toUpperCase();
+        $('#opponent_img').attr('src', 'img/' + result.opponent + '.jpg');
+        $('.opponent_result').show();
     }
-    let player = document.getElementById('player_result');
-    player.innerHTML = result.player.toUpperCase();
+    $('#player_img').attr('src', 'img/' + result.player + '.jpg');
     if (result.result) {
         let game_result = document.getElementById('game_result');
         game_result.innerHTML = result.result.toUpperCase();
+        $('#game_result').show();
     }
 
     $('#play').hide();
@@ -80,6 +73,7 @@ function showHideForm() {
         formVisible = false;
     } else {
         $('#game_settings').show();
+        $('#play').show();
         formVisible = true;
     }
 }
@@ -88,6 +82,12 @@ function showHideForm() {
 function showHideResult() {
     if (resultVisible) {
         $('#results').hide();
+        $('#opponent_img').attr('src', '');
+        $('.opponent_result').hide();
+        $('#player_img').attr('src', '');
+        let game_result = document.getElementById('game_result');
+        game_result.innerHTML = "";
+        $('#game_result').hide();
         resultVisible = false;
     } else {
         $('#results').show();
