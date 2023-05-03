@@ -2,10 +2,10 @@
 // check out the coin-server example from a previous COMP 426 semester.
 // https://github.com/jdmar3/coinserver
 
-// Changes visibility of form depending on options chosen in form
 var formVisible = true;
 var resultVisible = false;
 
+// Changes visibility of form depending on options chosen in form
 function showHideShots() {
     let checkbox = document.getElementById('opponent');
     let game = $('input[type=radio][name=game_choice]:checked').val();
@@ -28,6 +28,12 @@ function reset() {
         showHideForm();
         showHideResult();
         $('#play').show();
+        let opponent = document.getElementById('opponent_result');
+        opponent.innerHTML = "";
+        let player = document.getElementById('player_result');
+        player.innerHTML = "";
+        let game_result = document.getElementById('game_result');
+        game_result.innerHTML = "";
     }
 }
 
@@ -51,12 +57,23 @@ async function playGame() {
     let result = await response.json();
     console.log(result);
 
+    if (result.opponent) {
+        let opponent = document.getElementById('opponent_result');
+        opponent.innerHTML = result.opponent.toUpperCase();
+    }
+    let player = document.getElementById('player_result');
+    player.innerHTML = result.player.toUpperCase();
+    if (result.result) {
+        let game_result = document.getElementById('game_result');
+        game_result.innerHTML = result.result.toUpperCase();
+    }
 
     $('#play').hide();
     showHideForm();
     showHideResult();
 }
 
+// Toggles visibility of form
 function showHideForm() {
     if (formVisible) {
         $('#game_settings').hide();
@@ -67,6 +84,7 @@ function showHideForm() {
     }
 }
 
+// Toggles visibility of result
 function showHideResult() {
     if (resultVisible) {
         $('#results').hide();
