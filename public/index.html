@@ -7,41 +7,46 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body onload="showHideShots()">
-        <form id="game_settings" class="" action="javascript:void(0);">
-            <input type="radio" id="rps" name="game_choice" value="rps" checked="checked" onclick="showHideShots()">
-            <label for="rps">Play Rock, Paper, Scissors</label>
-            <br><br>
-            <input type="radio" id="rpsls" name="game_choice" value="rpsls" onclick="showHideShots()">
-            <label for="rpsls">Play Rock, Paper, Scissors, Lizard, Spock</label>
-            <br><br>
-            <input type="checkbox" id="opponent" name="mode" value="opponent" onclick="showHideShots()">
-            <label for="mode">Play against an opponent</label>
-            <br class="shots"><br class="shots">
-            <input type="radio" id="rock" name="shot" value="rock" class="rps shots" checked="checked">
-            <label for="rock" class="rps shots">Rock</label>
-            <br class="shots"><br class="shots">
-            <input type="radio" id="paper" name="shot" value="paper" class="rps shots">
-            <label for="paper" class="rps shots">Paper</label>
-            <br class="shots"><br class="shots">
-            <input type="radio" id="scissors" name="shot" value="scissors" class="rps shots">
-            <label for="scissors" class="rps shots">Scissors</label>
-            <br class="rpsls shots"><br class="rpsls shots">
-            <input type="radio" id="lizard" name="shot" value="lizard" class="rpsls shots">
-            <label for="lizard" class="rpsls shots">Lizard</label>
-            <br class="rpsls shots"><br class="rpsls shots">
-            <input type="radio" id="spock" name="shot" value="spock" class="rpsls shots">
-            <label for="spock" class="rpsls shots">Spock</label>
-        </form>
-        <div id="results" style="display: none;">
-            <p class="opponent_result" style="display: none;">OPPONENT</p>
-            <img src="" class="opponent_result" id="opponent_img" style="display: none;">
-            <p class="player_result">PLAYER</p>
-            <img src="" class="player_result" id="player_img">
-            <p id="game_result" style="display: none;"></p>
+        <div class="content">
+            <form id="game_settings" class="" action="javascript:void(0);">
+                <input type="radio" id="rps" name="game_choice" value="rps" checked="checked" onclick="showHideShots()">
+                <label for="rps">Play Rock, Paper, Scissors</label>
+                <br><br>
+                <input type="radio" id="rpsls" name="game_choice" value="rpsls" onclick="showHideShots()">
+                <label for="rpsls">Play Rock, Paper, Scissors, Lizard, Spock</label>
+                <br><br>
+                <input type="checkbox" id="opponent" name="mode" value="opponent" onclick="showHideShots()">
+                <label for="mode">Play against an opponent</label>
+                <br class="shots"><br class="shots">
+                <input type="radio" id="rock" name="shot" value="rock" class="rps shots" checked="checked">
+                <label for="rock" class="rps shots">Rock</label>
+                <br class="shots"><br class="shots">
+                <input type="radio" id="paper" name="shot" value="paper" class="rps shots">
+                <label for="paper" class="rps shots">Paper</label>
+                <br class="shots"><br class="shots">
+                <input type="radio" id="scissors" name="shot" value="scissors" class="rps shots">
+                <label for="scissors" class="rps shots">Scissors</label>
+                <br class="rpsls shots"><br class="rpsls shots">
+                <input type="radio" id="lizard" name="shot" value="lizard" class="rpsls shots">
+                <label for="lizard" class="rpsls shots">Lizard</label>
+                <br class="rpsls shots"><br class="rpsls shots">
+                <input type="radio" id="spock" name="shot" value="spock" class="rpsls shots">
+                <label for="spock" class="rpsls shots">Spock</label>
+            </form>
+            <div id="results" style="display: none;">
+                <h1 class="opponent_result" style="display: none;">OPPONENT</h1>
+                <img src="" class="opponent_result" id="opponent_img" style="display: none;">
+                <h1 class="player_result">PLAYER</h1>
+                <img src="" class="player_result" id="player_img">
+                <h1 id="game_result" style="display: none;"></h1>
+            </div>
+            <br>
+            <div class="buttons">
+                <button type="button" id="play" onclick="playGame()">Play</button>
+                <span id="button_space"></span>
+                <button type="button" id="reset" onclick="reset()">Reset</button>
+            </div>
         </div>
-        <br>
-        <button type="button" id="play" onclick="playGame()">Play</button>
-        <button type="button" id="reset" onclick="reset()">Reset</button>
     <!-- Your interface markup goes here -->
     <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
         

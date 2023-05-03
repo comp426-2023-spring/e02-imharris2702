@@ -62,6 +62,7 @@ async function playGame() {
     }
 
     $('#play').hide();
+    $('#button_space').hide();
     showHideForm();
     showHideResult();
 }
@@ -74,6 +75,7 @@ function showHideForm() {
     } else {
         $('#game_settings').show();
         $('#play').show();
+        $('#button_space').show();
         formVisible = true;
     }
 }
