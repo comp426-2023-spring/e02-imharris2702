@@ -96,3 +96,15 @@ function showHideResult() {
         resultVisible = true;
     }
 }
+
+// Shows help page and hides play form
+function showHelp() {
+    $('.content').hide();
+    $('.help_page').show();
+}
+
+// Hides help page and shows play form
+function hideHelp() {
+    $('.content').show();
+    $('.help_page').hide();
+}
