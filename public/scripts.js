@@ -52,9 +52,11 @@ async function playGame() {
 
     if (result.opponent) {
         $('#opponent_img').attr('src', 'img/' + result.opponent + '.jpg');
+        $('#opponent_img').attr('alt', result.opponent.toUpperCase());
         $('.opponent_result').show();
     }
     $('#player_img').attr('src', 'img/' + result.player + '.jpg');
+    $('#player_img').attr('alt', result.player.toUpperCase());
     if (result.result) {
         let game_result = document.getElementById('game_result');
         game_result.innerHTML = result.result.toUpperCase();
@@ -84,9 +86,11 @@ function showHideForm() {
 function showHideResult() {
     if (resultVisible) {
         $('#results').hide();
-        $('#opponent_img').attr('src', '');
+        $('#opponent_img').attr('src', 'img/rock.jpg');
+        $('#opponent_img').attr('alt', 'ROCK');
         $('.opponent_result').hide();
-        $('#player_img').attr('src', '');
+        $('#player_img').attr('src', 'img/rock.jpg');
+        $('#player_img').attr('alt', 'ROCK');
         let game_result = document.getElementById('game_result');
         game_result.innerHTML = "";
         $('#game_result').hide();
