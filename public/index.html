@@ -45,7 +45,31 @@
                 <button type="button" id="play" onclick="playGame()">Play</button>
                 <span id="button_space"></span>
                 <button type="button" id="reset" onclick="reset()">Reset</button>
+                <span id="button_space"></span>
+                <button type="button" id="help" onclick="toggleHelp()">Help</button>
             </div>
+        </div>
+        <div class="help_page" style="display: none;">
+            <h2>Rules for Rock Paper Scissors:</h2>
+            <ul>
+                <li>Scissors CUTS Paper</li>
+                <li>Paper COVERS Rock</li>
+                <li>Rock CRUSHES Scissors</li>
+            </ul>
+            <h2>Rules for the Lizard-Spock Expansion of Rock Paper Scissors:</h2>
+            <ul>
+                <li>Scissors CUTS Paper</li>
+                <li>Paper COVERS Rock</li>
+                <li>Rock SMOOSHES Lizard</li>
+                <li>Lizard POISONS Spock</li>
+                <li>Spock SMASHES Scissors</li>
+                <li>Scissors DECAPITATES Lizard</li>
+                <li>Lizard EATS Paper</li>
+                <li>Paper DISPROVES Spock</li>
+                <li>Spock VAPORIZES Rock</li>
+                <li>Rock CRUSHES Scissors</li>
+            </ul>
+            <button class="buttons" type="button" id="back" onclick="toggleHelp()">Back</button>
         </div>
     <!-- Your interface markup goes here -->
     <!-- For interface examples, look in the `/examples/` directory in the root of your starter code repo. -->
